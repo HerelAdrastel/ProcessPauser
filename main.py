@@ -11,6 +11,11 @@ PROCESS_NAME = "Rainmeter.exe"
 SKIN1 = ("Simplon\Clock1", "Simplon\TimeOfDay1", "Herel\CPU1", "Herel\Memory1")
 SKIN2 = ("Simplon\Clock2", "Simplon\TimeOfDay2", "Simplon\Visualizer", "Herel\CPU2", "Herel\Memory2")
 
+# !!!!!!!! ENTER YOUR SCREEN DIMENSIONS
+SCREEN1 = (-8, -8, 1374, 746)
+SCREEN2 = (1358, -8, 2654, 1002)
+# !!!!!!!!!
+
 # Is playing
 play_1 = True
 play_2 = True
@@ -25,17 +30,17 @@ windows_in_fs_2 = 0
 
 
 def is_in_full_screen_1(_window):
-    return GetWindowRect(_window) == (-8, -8, 1374, 746)
+    return GetWindowRect(_window) == SCREEN1
 
 
 # Return true if the window is in full screen and on the second screen
 def is_in_full_screen_2(_window):
-    return GetWindowRect(_window) == (1358, -8, 2654, 1002)
+    return GetWindowRect(_window) == SCREEN2
 
 
 # Retourne true si blacklisted
 def blacklisted(_window):
-    return GetWindowText(_window) == "Paramètres" or GetWindowText(_window) == "Photos"
+    return GetWindowText(_window) == "Photos" or GetWindowText(_window) == "Settings"
 
 
 def is_2nd_monitor_connected():
